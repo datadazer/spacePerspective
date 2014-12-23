@@ -1,11 +1,19 @@
+/**************************************
+**********Space Perspective************
+**************************************/
+
+var currentPlanet = ['mercury', 'venus', 'earth', 'mars',
+'jupiter', 'saturn', 'uranus', 'neptune'];
+var planetsRadi = [4,9,10,5,102,95,40,39];
+var planetsSizesMiles = ['1,516', '3,761', '3,959','2,460', '43,441', '36,184',
+'15,759', '15,299'];
+var newRadius = 0;
+
 var spaceWindow = d3.select('body').append('svg')
   .attr('width', 1000)
   .attr('height', 600)
   .style('border', '3px solid black')
   .style('background-color', 'rgb(30,30,30)');
-
-  var planetsRadi = [4,5,9,10,39,40,95,102];
-  var newRadius = 0;
 
 var planetData = [
   //{'x_axis': 105, 'y_axis': 300, 'radius': 102, 'color' : 'tan'},//jupiter
@@ -18,10 +26,6 @@ var planetData = [
   {'x_axis': 500, 'y_axis': 300, 'radius': 4, 'color' : 'white', 'class': 'mercury'},//mercury
   //{'x_axis': 680, 'y_axis': 300, 'radius': 10, 'color' : 'blue'},
 ];
-
-	//give planets names
-	//give planets distance values
-	//give planets radius
 
 var planets = spaceWindow.selectAll('circle')
   .data(planetData)
@@ -39,8 +43,19 @@ d3.selectAll('circle').on('click', function(){
     d3.selectAll('circle').transition()
       .attr('r', planetsRadi[newRadius]);
 
+    d3.select('text').text(currentPlanet[newRadius]);
+
+    d3.select('.SizeMiles').text(planetsSizesMiles[newRadius]);
+
     newRadius = newRadius + 1;
   } else {
-    newRadius = 0;
-  }
+      newRadius = 0;
+    }
 });
+
+d3.select('svg').append('text').text(currentPlanet[0])
+  .attr('x', 460)
+  .attr('y', 580)
+  .attr('fill', 'white')
+  .attr('font-size', '30');
+  //hi tanner!
