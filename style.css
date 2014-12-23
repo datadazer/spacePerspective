@@ -6,3 +6,9 @@ body {
 .container {
 	color: white;
 }
+
+.instructions {
+	color: white;
+	text-align: -webkit-center;
+	text-indent: -150px;
+}

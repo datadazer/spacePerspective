@@ -4,9 +4,11 @@
 
 var currentPlanet = ['mercury', 'venus', 'earth', 'mars',
 'jupiter', 'saturn', 'uranus', 'neptune'];
-var planetsRadi = [4,9,10,5,102,95,40,39];
+var planetsRadi = [4,9,10,5,102,95,40,39];//sun is 2180!!!!! MOTHEROFGOD!
 var planetsSizesMiles = ['1,516', '3,761', '3,959','2,460', '43,441', '36,184',
 '15,759', '15,299'];
+var planetsSizesKilometers = ['2,440', '6,052', '6,371', '3,390', '69,911', '58,232',
+'25,362', '24,622'];
 var newRadius = 0;
 
 var spaceWindow = d3.select('body').append('svg')
@@ -23,7 +25,7 @@ var planetData = [
   //{'x_axis': 600, 'y_axis': 300, 'radius': 10, 'color' : 'darkblue'},//earth
   //{'x_axis': 640, 'y_axis': 300, 'radius': 9, 'color' : 'green'},//venus
   //{'x_axis': 680, 'y_axis': 300, 'radius': 5, 'color' : 'red'},//mars
-  {'x_axis': 500, 'y_axis': 300, 'radius': 4, 'color' : 'white', 'class': 'mercury'},//mercury
+  {'x_axis': 500, 'y_axis': 300, 'radius': 4, 'color' : 'rgb(255,255,255)', 'class': 'mercury'},//mercury
   //{'x_axis': 680, 'y_axis': 300, 'radius': 10, 'color' : 'blue'},
 ];
 
@@ -46,6 +48,7 @@ d3.selectAll('circle').on('click', function(){
     d3.select('text').text(currentPlanet[newRadius]);
 
     d3.select('.SizeMiles').text(planetsSizesMiles[newRadius]);
+    d3.select('.SizeKilometers').text(planetsSizesKilometers[newRadius]);
 
     newRadius = newRadius + 1;
   } else {
